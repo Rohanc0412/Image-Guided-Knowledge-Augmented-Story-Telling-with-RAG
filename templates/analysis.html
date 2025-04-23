@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Story Analysis</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <style>
+    table th, table td {
+      text-align: left !important;
+      vertical-align: middle;
+    }
+  </style>
+  <style>
+    body {
+      font-family: 'Times New Roman', Times, serif;
+    }
+  
+    pre, table, .card-body, h1, h2, h3, h4, h5, h6 {
+      font-family: 'Times New Roman', Times, serif;
+    }
+  </style>
+  <style>
+    .gpt-analysis-block {
+      font-family: 'Times New Roman', Times, serif;;
+      font-size: 1.05rem;
+      line-height: 1.6;
+      background-color: #fdfdfd;
+      padding: 1.5rem;
+      border-radius: 6px;
+      color: #212529;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    </style>
+</head>
+<body class="bg-light">
+  <div class="container my-5">
+    <h1>Performance Analysis</h1>
+
+    <h3 class="mt-4">Overall Metrics</h3>
+    {{ overall|safe }}
+
+    <img src="{{ heatmap_url }}" class="img-fluid my-4" alt="Overall Heatmap">
+
+    <div class="container mt-5">
+        <h3 class="mb-3 text-start"> Per-Act Metrics</h3>
+        <div class="table-responsive shadow-sm rounded">
+          {{ per_act | safe }}
+        </div>
+    </div>
+      
+
+    <img src="{{ per_act_heatmap_url }}" class="img-fluid my-4" alt="Per Act Heatmap">
+
+    {% if supported %}
+     <h3 class="mt-5">Supported Facts</h3>
+     <ul>
+       {% for fact, sim in supported %}
+         <li>{{ fact }} (sim: {{ sim }})</li>
+       {% endfor %}
+     </ul>
+   {% endif %}
+  
+   {% if unsupported %}
+        <h3 class="mt-4">Unsupported Facts</h3>
+        <ul>
+        {% for fact, sim in unsupported %}
+            <li>{{ fact }} (sim: {{ sim }})</li>
+        {% endfor %}
+        </ul>
+   {% endif %}
+  
+
+    <h3 class="mt-5">GPT-4 Analysis of the Generated Story</h3>
+    <div class="border rounded p-3 bg-white">
+        <pre class="gpt-analysis-block">{{ gpt_review }}</pre>
+    </div>
+
+    <div class="d-grid mt-5">
+      <a href="{{ url_for('index') }}" class="btn btn-primary btn-lg">Back to Upload</a>
+    </div>
+  </div>
+</body>
+</html>

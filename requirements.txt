@@ -1,0 +1,12 @@
+Flask
+python-dotenv
+requests
+Pillow
+beautifulsoup4
+numpy
+pinecone
+transformers
+sentence-transformers
+scikit-learn
+torch
+textstat

@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags for responsive design -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Generated Story</title>
+    
+    <!-- Bootstrap 5 CSS (CDN) -->
+    <link 
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" 
+      rel="stylesheet"
+    >
+    
+    <!-- Optional: Your own custom CSS -->
+    <style>
+      body {
+        background-color: #f8f9fa;
+        margin: 40px;
+      }
+      pre {
+        white-space: pre-wrap; /* Allows line wrapping inside <pre> */
+        background-color: #fff;
+        padding: 1rem;
+        border-radius: 5px;
+        font-family: "Open Sans", sans-serif;
+      }
+      .card-title {
+        font-weight: 600;
+      }
+      .story-container {
+        margin-top: 2rem;
+      }
+    </style>
+    <style>
+      body {
+        font-family: 'Times New Roman', Times, serif;
+      }
+    
+      pre, table, .card-body, h1, h2, h3, h4, h5, h6 {
+        font-family: 'Times New Roman', Times, serif;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Main Container -->
+    <div class="container story-container">
+
+      <!-- Heading Row -->
+      <div class="row justify-content-center mb-4">
+        <div class="col-lg-8 text-center">
+          <h1 class="display-4">Generated Story</h1>
+          <p class="text-muted">Experience a compelling narrative inspired by your image and factual background</p>
+        </div>
+      </div>
+
+      <!-- Cards Row -->
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+
+            <div class="card mb-4 shadow-sm">
+                <div class="card-body text-center">
+                  <h2 class="card-title">Uploaded Image</h2>
+                  <img 
+                    src="{{ image_url }}" 
+                    alt="Uploaded Image" 
+                    class="img-fluid rounded" 
+                    style="max-height: 400px; object-fit: cover;"
+                  >
+                </div>
+              </div>
+          
+          <!-- Caption Card -->
+          <div class="card mb-4 shadow-sm">
+            <div class="card-body">
+              <h2 class="card-title">Best Caption</h2>
+              <p class="card-text">{{ caption }}</p>
+            </div>
+          </div>
+
+          <!-- Factual Background Card -->
+          <div class="card mb-4 shadow-sm">
+            <div class="card-body">
+              <h2 class="card-title">Factual Background Summary</h2>
+              <p class="card-text">{{ summary }}</p>
+            </div>
+          </div>
+        
+          <!-- Story Card -->
+          <div class="card mb-4 shadow-sm">
+            <div class="card-body">
+              <h2 class="card-title">Your Compelling Story</h2>
+              <div class="card-text">
+                {{ story | safe }}
+              </div>
+            </div>
+          </div>
+          
+          <div style="margin-top: 30px;"></div>
+
+          <!-- Buttons Row -->
+          <div class="d-grid mt-5">
+            <a href="{{ url_for('index') }}" class="btn btn-primary btn-lg">Upload Another Image</a>
+          </div>
+
+          <div style="margin-top: 10px;"></div>
+
+          <div class="d-grid mt-5">
+            <a href="{{ url_for('analysis') }}" class="btn btn-primary btn-lg">View Performance Analysis</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

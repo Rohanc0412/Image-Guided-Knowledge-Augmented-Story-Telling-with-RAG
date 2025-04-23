@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Image Story Generator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap 5 CSS -->
+    <link 
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" 
+      rel="stylesheet"
+    >
+    <style>
+      body {
+        font-family: 'Times New Roman', Times, serif;
+      }
+    
+      pre, table, .card-body, h1, h2, h3, h4, h5, h6 {
+        font-family: 'Times New Roman', Times, serif;
+      }
+    </style>
+  </head>
+  <body class="bg-light">
+    <div class="container py-5">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <div class="text-center mb-4">
+            <h1 class="display-5">Generate a Story from Your Image</h1>
+            <p class="text-muted">Upload an image to begin</p>
+          </div>
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <form method="post" enctype="multipart/form-data">
+                <div class="mb-3">
+                  <label for="imageInput" class="form-label">Choose an Image</label>
+                  <input 
+                    type="file" 
+                    class="form-control" 
+                    id="imageInput" 
+                    name="image" 
+                    accept="image/*" 
+                    required
+                  >
+                </div>
+                <div class="d-grid">
+                  <button type="submit" class="btn btn-primary btn-lg">
+                    Generate Story
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Bootstrap 5 JS -->
+    <script 
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    ></script>
+  </body>
+</html>
